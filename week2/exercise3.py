@@ -74,8 +74,13 @@ def loops_2():
             ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*'],
           ]
     """
-    return (returnlist)
-
+    returnlist = []
+    for a in range(0,10):
+        tmp = []
+        for b in range(0,10):
+            tmp.append("*")
+            returnlist.append(tmp)
+    return (returnlist)        
 
 def loops_3():
     """Make a rising block of numbers.
@@ -98,9 +103,13 @@ def loops_3():
     TIP: notice that this needs to to return strings of numbers,
          so call str(number) to cast.
     """
-
-
-
+    returnlist = []
+    for a in range (0,10):
+        tmp = []
+        for b in range(0,10):
+            tmp.append(a)
+        returnlist.append(tmp)
+    return returnlist        
 def loops_4():
     """Make a block of numbers that rises left to right.
 
@@ -118,21 +127,13 @@ def loops_4():
       ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
     ]
     """
-    BlockingIOError =   [
-      ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
-      ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
-      ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
-      ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
-      ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
-      ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
-      ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
-      ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
-      ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
-      ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-    ]
-    return a_block
-
-
+    returnlist =[]
+    for x in range(0,10):
+        tmp = []
+        for y in range (0,10):
+            tmp.append(y)
+        returnlist.append(tmp)
+        return returnlist    
 def loops_5():
     """Make the coordinates of the block.
 
@@ -155,7 +156,14 @@ def loops_5():
         "There are {} green bottles".format(8)
     you'll come to see the pros and cons of each over time.
     """
-    return ("There are " + str(8) + "green bottles")
+    returnlist = []
+    for a in range(0,10):
+        tmp = []
+        for b in range(0,5):
+            tmp.append("There are " + str(8) + "green bottles")
+        returnlist.append(tmp)
+    return returnlist        
+    
 
 
 def loops_6():
@@ -178,7 +186,13 @@ def loops_6():
     You can use a variable.
     TIP: look out for the starting condition.
     """
-    pass
+    returnlist = []
+    for a in range (0,10):
+        tmp=[]
+        for b in range(0,b):
+            tmp.append(b)
+        returnlist.append(b)
+    return returnlist
 
 
 def loops_7():
@@ -202,7 +216,7 @@ def loops_7():
     This is a hard problem. Use lots of experimentation and draw
     lots of diagrams!
     """
-    pass
+    return (returnlist)            
 
 
 def lp(some_kind_of_list, exercise_name):
