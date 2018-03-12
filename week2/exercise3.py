@@ -52,9 +52,10 @@ def loops_1c(number_of_items=5, symbol="#"):
     a string with exacly one symbol in it.
     E.g.: ['#', '#', '#', '#', '#']
     """
-    some_symbol = ['#', '#', '#', '#', '#']
-    number_of_items = 5
-    return (number_of_items) + (symbol)
+    returnlist = []
+    for a in range(1,6):
+        returnlist.append ("#")
+        return (returnlist)
 
 def loops_2():
     """Make a big square starfield.
@@ -216,7 +217,9 @@ def loops_7():
     This is a hard problem. Use lots of experimentation and draw
     lots of diagrams!
     """
-    return (returnlist)            
+    returnlist = []
+
+
 
 
 def lp(some_kind_of_list, exercise_name):
