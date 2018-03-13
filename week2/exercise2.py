@@ -7,7 +7,7 @@ import string
 
 def getLetter(index):
     alphabet = string.ascii_lowercase + " "
-    return alphabet [index] + " "
+    return alphabet [index]
 
 
 def week2exersise2():
@@ -25,4 +25,4 @@ def week2exersise2():
 
 
 if __name__ == "__main__":
-    print("week2exersise2()")
+    print(week2exersise2())

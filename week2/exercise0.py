@@ -18,10 +18,10 @@ def add_5(a_number):
 
 
 def adder(a_number, another_number):
-    return a_number +9
     """Add two numbers.
     Same as above, but with any two numbers.
     """
+    return a_number + another_number
 
 
 
@@ -48,7 +48,7 @@ def really_shout(a_string):
     """
 
 def shout_with_a_number(a_string, a_number):
-    return a_string+""+str(5)
+    
     """Return a string in uppercase with a space and a_number concatentated.
     E.g.
     >>> shout_with_a_number('hello', 42)
@@ -56,6 +56,7 @@ def shout_with_a_number(a_string, a_number):
 
     HINT: Lookup how to cast a_number to a string or lookup how to use f-strings in python
     """
+    return a_string.upper()+" "+str(a_number)
 
 
 

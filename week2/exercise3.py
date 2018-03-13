@@ -21,14 +21,14 @@ def fix_it(moves=True, should_move=True):
     """
     if moves is True:
         if should_move is True:
-            return "no problem"
+            return "No Problem"
         else:
-            return "duct tape"
+            return "Duct Tape"
     else:
         if should_move is True:      
-            return "wd-40"
+            return "WD-40"
         else:
-            return "no problem"
+            return "No Problem"
 
 
 
@@ -53,9 +53,9 @@ def loops_1c(number_of_items=5, symbol="#"):
     E.g.: ['#', '#', '#', '#', '#']
     """
     returnlist = []
-    for a in range(1,6):
-        returnlist.append ("#")
-        return (returnlist)
+    for a in range(number_of_items):
+        returnlist.append(symbol)
+    return (returnlist)
 
 def loops_2():
     """Make a big square starfield.
@@ -76,11 +76,11 @@ def loops_2():
           ]
     """
     returnlist = []
-    for a in range(0,10):
-        tmp = []
-        for b in range(0,10):
-            tmp.append("*")
-            returnlist.append(tmp)
+    for a in range(0, 10):
+        asd = []
+        for b in range(0, 10):
+            asd.append("*")
+        returnlist.append(asd)
     return (returnlist)        
 
 def loops_3():
@@ -105,12 +105,12 @@ def loops_3():
          so call str(number) to cast.
     """
     returnlist = []
-    for a in range (0,10):
-        tmp = []
-        for b in range(0,10):
-            tmp.append(a)
-        returnlist.append(tmp)
-    return returnlist        
+    for a in range(0, 10):
+        asd = []
+        for b in range(0, 10):
+            asd.append(str(a))
+        returnlist.append(asd)
+    return (returnlist)        
 def loops_4():
     """Make a block of numbers that rises left to right.
 
@@ -129,12 +129,12 @@ def loops_4():
     ]
     """
     returnlist =[]
-    for x in range(0,10):
-        tmp = []
-        for y in range (0,10):
-            tmp.append(y)
-        returnlist.append(tmp)
-        return returnlist    
+    for x in range(0, 10):
+        asd = []
+        for y in range (0, 10):
+            asd.append(str(y))
+        returnlist.append(asd)
+    return (returnlist)    
 def loops_5():
     """Make the coordinates of the block.
 
@@ -158,12 +158,12 @@ def loops_5():
     you'll come to see the pros and cons of each over time.
     """
     returnlist = []
-    for a in range(0,10):
-        tmp = []
-        for b in range(0,5):
-            tmp.append("There are " + str(8) + "green bottles")
-        returnlist.append(tmp)
-    return returnlist        
+    for i in range(0, 10):
+        asd = []
+        for j in range(0, 5):
+            asd.append("(i" + str(i) + ", j" + str(j) + ")")
+        returnlist.append(asd)
+    return (returnlist)        
     
 
 
@@ -188,12 +188,12 @@ def loops_6():
     TIP: look out for the starting condition.
     """
     returnlist = []
-    for a in range (0,10):
-        tmp=[]
-        for b in range(0,b):
-            tmp.append(b)
-        returnlist.append(b)
-    return returnlist
+    for a in range (0, 10):
+        asd = []
+        for b in range(0, a + 1):
+            asd.append(str(b))
+        returnlist.append(asd)
+    return (returnlist)
 
 
 def loops_7():
@@ -218,7 +218,17 @@ def loops_7():
     lots of diagrams!
     """
     returnlist = []
-
+    for a in range(0, 5):
+        asd = []
+        for b in range (0, 9):
+            asd.append("*")
+            if a + b < 4:
+                asd[b] = " "
+            asterisk = a+4
+            if b > asterisk:
+                asd[b] = " "
+        returnlist.append(asd)
+    return (returnlist)    
 
 
 
