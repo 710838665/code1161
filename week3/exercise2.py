@@ -14,7 +14,7 @@ def exampleGuessingGame():
     """
     print("\nwelcome to the guessing game!")
     print("A number between 0 and _ ?")
-    upperBound = raw_input("Enter an upper bound: ")
+    upperBound = input("Enter an upper bound: ")
     print("OK then, a number between 0 and {} ?".format(upperBound))
     upperBound = int(upperBound)
 
@@ -23,7 +23,7 @@ def exampleGuessingGame():
     guessed = False
 
     while not guessed:
-        guessedNumber = int(raw_input("guess a number: "))
+        guessedNumber = int(input("guess a number: "))
         print("you guessed {},".format(guessedNumber),)
         if guessedNumber == actualNumber:
             print("you got it!! It was {}".format(actualNumber))
