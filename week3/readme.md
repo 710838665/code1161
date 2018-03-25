@@ -16,4 +16,16 @@ def some_function()
         print(x)
         if x == "exit!":
             return x
-some_function()            
+some_function()
+ while True:
+
+        number = not_number_rejector('Please enter a number: ')
+
+        if low < number and number < high:
+
+            break
+
+    return number
+    I know that we can use the not_mumber_rejector to determine the words and number.
+    then i always know some things to creative a little game,but i am not sure is that working.
+                
