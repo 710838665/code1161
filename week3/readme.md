@@ -6,5 +6,14 @@ def some+function():
             count += 1
         else
             return count
+return_value = some_function()
+print(return_value)
 
-some_function()
+def some_function()
+
+    while True:
+        x = input("give me somthings")
+        print(x)
+        if x == "exit!":
+            return x
+some_function()            
