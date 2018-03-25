@@ -26,14 +26,15 @@ def lone_ranger(start, stop, step):
 
     Look up the docs for range() and wrap it in a 1:1 way
     """
-   nlist = []
-    for a in range(0, 10):
-        asd = []
-        for b in range(0, 10):
-            asd.append("*")
-        returnlist.append(asd)
-    return (returnlist)      
+    lr = []
 
+    while start < stop:
+
+        lr.append(start)
+
+        start = start + step
+
+    return lr
 
 
 def two_step_ranger(start, stop):
@@ -55,18 +56,26 @@ def gene_krupa_range(start, stop, even_step, odd_step):
     make a list that instead of having evenly spaced steps
     has odd steps be one size and even steps be another.
     """
-    raalist = []
-    i = 0
+    rl = []
+    count = 0
+
     while start < stop:
-        if i == 0:
-            raalist.append(start)
-            start += even_step
-            i = 1
+
+        rl.append(start)
+
+        if count % 2:
+
+            start += odd_step
+
+            count += 1
+
         else:
-            raalist.append(start)
+
             start += even_step
-            i = 0
-    return raalist            
+
+            count += 1
+
+    return rl          
 
 def stubborn_asker(low, high):
     """Ask for a number between low and high until actually given one.
@@ -74,19 +83,18 @@ def stubborn_asker(low, high):
     Ask for a number, and if the response is outside the bounds keep asking
     until you get a number that you think is OK
     """
-    number_given = False
+    num = False
 
-    while number_given is False:
-
+    while num is False:
         num = input("Enter a number between {} and {}".format(low, high))
 
         if int(num) > low and int(num) < high:
 
-            number_given = True
+            num = True
 
             break
 
-        print(str(number_given))
+        print(str(num))
 
     return num
 
@@ -98,12 +106,27 @@ def not_number_rejector(message):
     "six", "8!") then throw it out and ask for an actual number.
     When you do get a number, return it.
     """
-    rrr = input(message)
-    while rrr.indigit() == False:
-        print("not a umber")
-        rrr = input(message)
+    while True:
 
-    return int(rrr)    
+        try:
+
+            number_given = int(str(raw_input(message)))
+
+        except ValueError:
+
+            print("This is not a number.")
+
+            continue
+
+        except NameError:
+
+            print("This is not a number.")
+
+            continue
+
+        else:
+
+            return number_given
 
 
 def super_asker(low, high):
@@ -112,8 +135,7 @@ def super_asker(low, high):
     Combine stubborn_asker and not_number_rejector to make a function
     that does it all!
     """
-    aba = input()
-
+    
 
 if __name__ == "__main__":
     # this section does a quick test on your results and prints them nicely.
