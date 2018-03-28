@@ -51,27 +51,18 @@ def do_bunch_of_bad_things():
 def countdown(message, start, stop, completion_message):
 
     coun = []
-
     if start > stop:
-
         step = -1
-
     elif start == stop:
-
         return(completion_message)
 
     else:
-
         step = 1
 
     for i in range(start, stop, step):
-
         coun.append(message + " {}".format(i))
 
     coun.append(completion_message)
-
-
-
     return(coun)
 
 
@@ -179,15 +170,12 @@ def tell_me_about_this_right_triangle(facts_dictionary):
 
 
     if base == height:
-
         return(equal.format(**facts_dictionary) + "\n" + facts)
 
     elif base > height:
-
         return (wide.format(**facts_dictionary) + "\n" + facts)
 
     else:
-
         return (tall.format(**facts_dictionary) + "\n" + facts)
     
 
@@ -209,35 +197,12 @@ def triangle_master(base,
 
 
 def wordy_pyramid():
-    import requests
-    baseURL = "http://api.wordnik.com/v4/words.json/randomWords?api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5&minLength={0}&maxLength={0}&limit=1"
-    pyramid_list = []
-    for i in range(3, 21, 2):
-        url = baseURL.format(i)
-        r = requests.get(url)
-        message = r.json()[0]['word']
-        pyramid_list.append(message)
-    for i in range(20, 3, -2):
-        url = baseURL.format(str(i))
-        r = requests.get(url)
-        message = r.json()[0]['word']
-        pyramid_list.append(message)
-    return pyramid_list
+    pass
+
 
 
 def get_a_word_of_length_n(length):
-    import requests
-    try:
-        length = int(length)
-        if length >= 3:
-            baseURL = "http://api.wordnik.com/v4/words.json/randomWords?api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5&minLength={0}&maxLength={0}&limit=1"
-            url = baseURL + str(length)
-            r = requests.get(url)
-            message = r.text
-            return(message)
-
-    except ValueError:
-        message = None
+    pass
 
 
 def list_of_words_with_lengths(list_of_lengths):
