@@ -63,7 +63,6 @@ def italian_dinner(axiom="tomatoes", guard=6):
 
 
 def italian_rules(word):
-    """Substitution rules to make Italian recipes."""
     if word == "tomatoes":
         return "tomatoes with linguini and basil"
     elif word == "and":
@@ -91,6 +90,9 @@ def abba(source="abba", guard=3):
     aobaobbbabbaoaaobbbaoaaobaobaobbba
                 and so on...
     """
+    def map(liste, guard):
+
+        return ''.join(map(lambda x: apply_rules(x, guard-1), liste))
     def apply_rules(letter, guard):
         """Control the substitution.
 
@@ -98,7 +100,7 @@ def abba(source="abba", guard=3):
 
         Hint: when guard == -1 return the letter.
         """
-        if letter == "a":
+        if letter == "":
             return "a"
         elif letter == "b":
             return "b"
