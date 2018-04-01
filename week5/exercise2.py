@@ -110,8 +110,7 @@ def abba(source="abba", guard=3):
             return letter
 
     # write the rest of the function here
-    pass
-
+    
 
 def koch(t, order, size):
     """Make turtle t draw a Koch fractal of 'order' and 'size'."""
@@ -154,7 +153,6 @@ def square_koch(t, order, size):
 
     """
     trace = ""
-    # write the rest of the function here.
     return str(order) + trace
     pass
 
