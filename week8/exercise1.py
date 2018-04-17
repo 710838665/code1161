@@ -18,7 +18,10 @@ def greet(name="Towering Timmy"):
     return a string of "Hello" and the name argument.
     E.g. if given as "Towering Timmy" it should return "Hello Towering Timmy"
     """
-    pass
+    print ("hello" + name)
+    return greet
+
+    
 
 
 def three_counter(input_list=[1, 4, 3, 5, 7, 1, 3, 2, 3, 3, 5, 3, 7]):
@@ -27,7 +30,9 @@ def three_counter(input_list=[1, 4, 3, 5, 7, 1, 3, 2, 3, 3, 5, 3, 7]):
     Return an integer.
     TIP: the test will use a different input_list, so don't just return 5
     """
-    pass
+    return input_list.count(3)
+
+    
 
 
 def fizz_buzz():
@@ -35,9 +40,12 @@ def fizz_buzz():
 
     This is the most famous basic programming test of all time!
 
-       "Write a program that prints the numbers from 1 to 100. But for
-        multiples of three print "Fizz" instead of the number and for
-        the multiples of five print "Buzz". For numbers which are
+       "Write a program that prints the numbers from 1 to 100. 
+       But for
+        multiples of three print "Fizz" instead of the number and
+         for
+        the multiples of five print "Buzz". 
+        For numbers which are
         multiples of both three and five print "FizzBuzz"."
             from https://blog.codinghorror.com/why-cant-programmers-program/
 
@@ -45,6 +53,16 @@ def fizz_buzz():
     if it is. E.g. [1, 2, "Fizz", 4, "Buzz", 6, 7, ...]
     """
     fizzBuzzList = []
+    for i in range (1, 101):
+        if i % 3 == 0:
+            fizzBuzzList.append("Fizz")
+        elif i % 5 == 0:
+            fizzBuzzList.append("buzz")
+        elif i % 5 == 0 and i % 3 == 0:
+            fizzBuzzList.append("FizzBuzz")
+        else:
+            fizzBuzzList.append(i)
+
     # your code here
     return fizzBuzzList
 
@@ -56,7 +74,7 @@ def put_behind_bars(input_string="very naughty boy"):
     e.g. "very naughty boy" should return "|v|e|r|y| |n|a|u|g|h|t|y| |b|o|y|"
     TIP: make sure that you have a pipe on both ends of the string.
     """
-    pass
+    return "|" + "|" .join(input_string)+ "|"
 
 
 def pet_filter(letter="a"):
@@ -69,8 +87,7 @@ def pet_filter(letter="a"):
             "bali cattle", "gayal", "turkey", "goldfish", "rabbit", "koi",
             "canary", "society finch", "fancy mouse", "siamese fighting fish",
             "fancy rat and lab rat", "mink", "red fox", "hedgehog", "guppy"]
-    pass
-
+    return [s for s in pets if letter in s]
 
 def best_letter_for_pets():
     """Return the letter that is present at least once in the most pet names.
@@ -79,8 +96,18 @@ def best_letter_for_pets():
     TIP: return just a letter, not the list of animals.
     """
     import string
-    the_alphabet = string.lowercase
-    pass
+    the_alphabet = string.ascii_lowercase
+    maxl = 0
+    bestletter = ""
+    for i in the_alphabet:
+        c = len(pet_filter(i))
+        if c > maxl:
+            maxl = c
+            bestletter = i
+    print("maxl"+str(maxl)+ "letter=" + bestletter)
+    return bestletter
+
+
 
 
 def make_filler_text_dictionary():
@@ -98,7 +125,16 @@ def make_filler_text_dictionary():
     TIP: you'll need the requests library
     """
     import requests
-    pass
+    word_dictionary = {}
+    for number in range(3, 8):
+        word_dictionary[number] = []
+        for word in range(3):
+            url ="http://api.wordnik.com/v4/words.json/randomWords?api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5&minLength=7&maxLength=7&limit=1" + str(number)
+            new_found_word = requests.get(url).text
+            print(new_found_word)
+            word_dictionary[number].append(new_found_word)
+    return word_dictionary
+    
 
 
 def random_filler_text(number_of_words=200):
@@ -114,8 +150,13 @@ def random_filler_text(number_of_words=200):
            capital letter and end with a full stop.
     """
     import random
-    pass
-
+    import random
+    Dict = make_filler_text_dictionary()
+    paragraph_list = []
+    for _ in range(number_of_words):
+        word = Dict[random.randint(3, 7)][random.randint(0, 2)]
+        paragraph_list.append(word)
+    return " ".join(paragraph_list)
 
 def fast_filler(number_of_words=200):
     """Reimplement random filler text.
