@@ -14,7 +14,7 @@ Some functions will have directions as external comments, once you think you
 are on top of it, take these comments out. Others won't have comments and
 you'll need to figure out for yourself what to do.
 """
-
+import math
 
 # This is a terrible function. The rest of the functions in this file do a
 # much better job of what it's trying to do. Once you've has a little look,
@@ -50,20 +50,9 @@ def do_bunch_of_bad_things():
 # It should say something different in the last message.
 def countdown(message, start, stop, completion_message):
 
-    coun = []
-    if start > stop:
-        step = -1
-    elif start == stop:
-        return(completion_message)
+    range1 = range(start, stop, [-1, 1][start < stop])
 
-    else:
-        step = 1
-
-    for i in range(start, stop, step):
-        coun.append(message + " {}".format(i))
-
-    coun.append(completion_message)
-    return(coun)
+    return list(map(lambda x: print(message, str(x)), range1)) + [completion_message]
 
 
 # TRIANGLES
@@ -76,9 +65,7 @@ def countdown(message, start, stop, completion_message):
 # The stub functions are made for you, and each one is tested, so this should
 # hand hold quite nicely.
 def calculate_hypotenuse(base, height):
-    hypotenuse = (base**2 + height**2)**(1/2)
-
-    return hypotenuse
+    return math.sqrt(base**2 + height**2)
 
 
 def calculate_area(base, height):
@@ -93,11 +80,11 @@ def calculate_perimeter(base, height):
     return perimeter
 
 def calculate_aspect(base, height):
-    if base == height:
+    if base/height == 1:
 
         return "equal"
 
-    elif base > height:
+    elif base/height > 1:
 
         return "wide"
 
@@ -162,21 +149,41 @@ def tell_me_about_this_right_triangle(facts_dictionary):
                "It has a perimeter of {perimeter}{units}\n"
                "This is a {aspect} triangle.\n")
 
-    facts = pattern.format(**facts_dictionary)
-    height = facts_dictionary["height"]
+    if facts_dictionary['aspect'] == 'equal':
 
-    base = facts_dictionary["base"]
+        shape = equal
 
+    elif facts_dictionary['aspect'] == 'wide':
 
-
-    if base == height:
-        return(equal.format(**facts_dictionary) + "\n" + facts)
-
-    elif base > height:
-        return (wide.format(**facts_dictionary) + "\n" + facts)
+        shape = wide
 
     else:
-        return (tall.format(**facts_dictionary) + "\n" + facts)
+
+        shape = tall
+
+    description = shape.format(height=facts_dictionary["height"],
+
+                               hypotenuse=facts_dictionary["hypotenuse"],
+
+                               base=facts_dictionary["base"])
+
+    # description += "\n"+pattern.format(area=facts_dictionary["area"],
+
+    #                                    units=facts_dictionary["units"],
+
+    #                                    perimeter=facts_dictionary["perimeter"],
+
+    #                                    aspect=facts_dictionary["aspect"])
+
+    facts = pattern.format(**facts_dictionary)
+
+    description += "\n" + facts
+
+    print(type(description))
+
+    print(description)
+
+    return str(description)
     
 
 
@@ -184,35 +191,82 @@ def triangle_master(base,
                     height,
                     return_diagram=False,
                     return_dictionary=False):
-    dictionary = get_triangle_facts(base, height)
-    diagram = tell_me_about_this_right_triangle(dictionary)
+    """DOCSTRING."""
+
     if return_diagram and return_dictionary:
-        return {'diagram': diagram, 'facts': dictionary}
+
+        return ({"diagram": tell_me_about_this_right_triangle(
+
+                 get_triangle_facts(base, height)),
+
+                 "facts": get_triangle_facts(base, height)})
+
     elif return_diagram:
-        return diagram
+
+        print(tell_me_about_this_right_triangle(get_triangle_facts(base,
+
+                                                                   height)))
+
+        return tell_me_about_this_right_triangle(get_triangle_facts(base,
+
+                                                                    height))
+
     elif return_dictionary:
-        return {'facts': dictionary}
+
+        print(get_triangle_facts(base, height))
+
+        return {"facts": get_triangle_facts(base, height), "units": "units"}
+
     else:
+
         print("You're an odd one, you don't want anything!")
 
 
+
+
 def wordy_pyramid():
-    pass
+    pyramid_list = []
+
+    for i in range(3, 21, 2):
+
+        pyramid_list.append(list_of_words_with_lengths([i])[0])
+
+    for i in range(20, 3, -2):
+
+        pyramid_list.append(list_of_words_with_lengths([i])[0])
+
+    return pyramid_list
 
 
 
 def get_a_word_of_length_n(length):
-    pass
+    """DOCSTRING."""
 
+    import requests
+
+    baseURL = "http://api.wordnik.com/v4/words.json/randomWords?api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5&minLength={}&maxLength={}&limit=1"
+
+            
+
+    try:
+
+        if not type(length) == int:
+
+            return None
+
+        elif int(length) == 0:
+
+            return None
+
+        return requests.get(baseURL.format(length, length)).json()[0]['word']
+
+    except Exception:
+
+        return None
 
 def list_of_words_with_lengths(list_of_lengths):
-    asd = []
-
-    for i in range(len(list_of_lengths)):
-
-        asd.append(get_a_word_of_length_n(list_of_lengths[i]))
-
-    return asd
+    """DOCSTRING."""
+    return list(map(get_a_word_of_length_n, list_of_lengths))
 
 
 if __name__ == "__main__":

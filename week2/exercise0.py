@@ -3,6 +3,7 @@
 
 
 def add_5(a_number):
+    return a_number + 5 
     """Return a number that is 5 bigger than number given.
 
     This isn't a trick!
@@ -13,7 +14,7 @@ def add_5(a_number):
         return a_number plus five
     except expressed in python, not english
     """
-    return a_number + 5
+    
 
 
 def adder(a_number, another_number):

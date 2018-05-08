@@ -1,11 +1,10 @@
-TODO: Reflect on what you learned this week and what is still unclear.
-I am not sure how to return the list 
-the str is word 
-the int is number
-we can define a variable like xxx=xxx
-And 
-    if  xxx=xx
- return (bbb)
-else
-    return (aaa)
+while True:
+
+        number = not_number_rejector('Please enter a number: ')
+
+        if low < number and number < high:
+
+            break
+
+    return number
     

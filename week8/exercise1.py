@@ -87,7 +87,8 @@ def pet_filter(letter="a"):
             "bali cattle", "gayal", "turkey", "goldfish", "rabbit", "koi",
             "canary", "society finch", "fancy mouse", "siamese fighting fish",
             "fancy rat and lab rat", "mink", "red fox", "hedgehog", "guppy"]
-    return [s for s in pets if letter in s]
+    pass
+
 
 def best_letter_for_pets():
     """Return the letter that is present at least once in the most pet names.

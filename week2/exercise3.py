@@ -19,17 +19,17 @@ def fix_it(moves=True, should_move=True):
     "Duct Tape"
     "No Problem"
     """
-    if moves is True:
-        if should_move is True:
-            return "No Problem"
-        else:
-            return "Duct Tape"
-    else:
-        if should_move is True:      
-            return "WD-40"
-        else:
-            return "No Problem"
+    if moves == should_move:
 
+        return "No Problem"
+
+    elif moves:
+
+        return "Duct Tape"
+
+    else:
+
+        return "WD-40"
 
 
 def loops_1a():
@@ -217,19 +217,21 @@ def loops_7():
     This is a hard problem. Use lots of experimentation and draw
     lots of diagrams!
     """
-    returnlist = []
-    for a in range(0, 5):
-        asd = []
-        for b in range (0, 9):
-            asd.append("*")
-            if a + b < 4:
-                asd[b] = " "
-            asterisk = a+4
-            if b > asterisk:
-                asd[b] = " "
-        returnlist.append(asd)
-    return (returnlist)    
+    middle_index = 4
 
+    return_list = []
+
+    for x in range(5):
+
+        element_list = [' '] * 9
+
+        for i in range(middle_index-x, middle_index+x+1):
+
+            element_list[i] = '*'
+
+        return_list.append(element_list)
+
+    return return_list
 
 
 def lp(some_kind_of_list, exercise_name):
@@ -252,6 +254,7 @@ def lp(some_kind_of_list, exercise_name):
             print()
     else:
         print(exercise_name, "maybe you haven't got to this one yet?")
+
 
 
 if __name__ == "__main__":

@@ -89,7 +89,25 @@ def wordy_pyramid():
     ]
     TIP: to add an argument to a URL, use: ?argName=argVal e.g. &minLength=
     """
-    pass
+    pyramid1 = []
+
+    pyramid2 = []
+
+    url = "http://api.wordnik.com/v4/words.json/randomWords?api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5&minLength={}&maxLength={}&limit=1"
+
+    for length in range(3, 21):
+
+        if length % 2 == 1:
+
+            pyramid1.append(requests.get(url.format(length, length)).json()[0]['word'])
+
+        else:
+
+            pyramid2 = [requests.get(url.format(length, length)).json()[0]['word']] + pyramid2
+
+
+
+    return pyramid1 + pyramid2
 
 
 def wunderground():

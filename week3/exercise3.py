@@ -1,69 +1,118 @@
 """Week 3, Exercise 3.
 
+
+
 Steps on the way to making your own guessing game.
 """
-from __future__ import division
 
-from __future__ import print_function
 
 from exercise1 import not_number_rejector
-
 from exercise1 import super_asker
-
 import random
 
 
 def advancedGuessingGame():
+
+    """Play a guessing game with a user.
+
+
+
+    The exercise here is to rewrite the exampleGuessingGame() function
+
+    from exercise 3, but to allow for:
+
+    * a lower bound to be entered, e.g. guess numbers between 10 and 20
+
+    * ask for a better input if the user gives a non integer value anywhere.
+
+      I.e. throw away inputs like "ten" or "8!" but instead of crashing
+
+      ask for another value.
+
+    * chastise them if they pick a number outside the bounds.
+
+    * see if you can find the other failure modes.
+
+      There are three that I can think of. (They are tested for.)
+
+
+
+    NOTE: whilst you CAN write this from scratch, and it'd be good for you to
+
+    be able to eventually, it'd be better to take the code from exercise 2 and
+
+    marge it with code from excercise 1.
+
+    Remember to think modular. Try to keep your functions small and single
+
+    purpose if you can!
+
     """
-    """
-    print("A number between _ and _ ?")
+
+    lower = int_input("Enter the lower bound: ")
+
+    upper = int_input("Enter the upper bound: ")
+
+    while upper < lower:
+
+        print("Your upper limit is lower than your lower limit!")
+
+        upper = int_input("Enter the upper bound: ")
 
 
 
-    ln = not_number_rejector("Please give a lower number: ")
+    random_int = random.randint(lower, upper)
 
-
+    print("Guess the number between {} and {}!".format(lower, upper))
 
     while True:
 
-        un = not_number_rejector("Please give an upper number: ")
+        guess = int_input("Guess: ")
 
+        if not lower <= guess <= upper:
 
+            print("That is not in the range!")
 
-    print("And, a number between {} and {} ?".format(ln,un))
-    ac = random.randint(ln, un)
-    print (ac)
-    guessed = False
+            continue
 
-    while not guessed:
+        if guess > random_int:
 
-        guessedNumber = super_asker(ln, un)
+            print("Too high!")
 
-        print("you guessed {},".format(guessedNumber))
+        elif guess < random_int:
 
-        if guessedNumber not in range(ln, un + 1):
-
-            print("The gussed number is not between {} and {}."
-
-                  .format(ln, un))
-
-        elif guessedNumber == ac:
-
-            print("you got it!! It was {}".format(ac))
-
-            guessed = True
-
-        elif guessedNumber < ac:
-
-            print("too small, try again ")
+            print("Too low!")
 
         else:
 
-            print("too big, try again   ")
+            return "You got it!"
 
-        return "You got it!"
 
-  
+
+
+
+def int_input(message=''):
+
+    """Continually asks for an integer."""
+
+    answer = input(message)
+
+    try:
+
+        answer = int(answer)
+
+        return answer
+
+    except Exception:
+
+        print("Please input an integer only!")
+
+        return int_input("Integer: ")
+
+
+
+
 
 if __name__ == "__main__":
+
     advancedGuessingGame()
